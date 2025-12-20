@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+
+# Jupyter
+.ipynb_checkpoints/
+
+# DuckDB / DB files
+*.duckdb
+*.db
+
+# Data (keep raw data out of git)
+data/
+*.parquet
+*.csv
+*.jsonl
+
+#Vscode 
+.vscode/*
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
