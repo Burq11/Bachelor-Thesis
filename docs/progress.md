@@ -16,7 +16,7 @@
 - expose the endpoints via notebook [x]
 
 **Outcome and Bottelnecks**
-*endpionts were accesable, but the code and logic is quite complicated. Maybe we can hide the request somewhere under a button or a feature
+*endpoints were accesable, but the code and logic is quite complicated. Maybe we can hide the request somewhere under a button or a feature
 *
 ---
 
@@ -28,10 +28,11 @@ maybe we switch already to parquets
 Send Dataframes?
 
 **Tasks**
-- more endpoints []
-- We can query large chunks of data thanks to parquets []
-- testing the endpoints with copy of Martins Notebook []
+- more endpoints [x]
+- We can query large chunks of data thanks to parquets [x]
+- testing the endpoints with copy of Martins Notebook + demo for MArtin []
 - setting semantic limit based on what Martin uses []
+- creating a helper function in the notebook that loads the parquete and transforms the response into dataframe so that the client just asks for the data []
 
 **Outcome**
 
@@ -42,9 +43,12 @@ Send Dataframes?
 ### Week 3 – Transform layer
 
 **Objectives**
-
+Right now, the API mask mirrors the existing Oxford workflow and only replaces the data source.
+A transform layer on top of the API would be possible, but it would introduce methodological decisions (e.g. filtering, normalization).
+I wanted to align first whether these steps should stay in the notebook or be standardized in the API.
 - Existing notebooks continue to work
 - if Martin replyes that he needs soemthing like this 
+- validate endpionts(for example if sth does not exist)
 
 **Tasks**
 
@@ -103,10 +107,10 @@ Send Dataframes?
   ```
 
   ```
-  GET /slots
+  GET /nuts
   ```
   ```
-  GET /slots?platte=14
+  GET /nuts?platte=14
   ```
 
   ```
