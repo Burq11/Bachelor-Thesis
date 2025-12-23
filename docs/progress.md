@@ -15,28 +15,27 @@
 - connect to the already cleaned database locally [x]
 - expose the endpoints via notebook [x]
 
-**Outcome and Bottelnecks**
-*endpoints were accesable, but the code and logic is quite complicated. Maybe we can hide the request somewhere under a button or a feature
-*
+**Outcome and Bottlenecks**
+- endpoints were accesable, but the code and logic is quite complicated. Maybe we can hide the request somewhere under a button or a feature
 ---
 
 ### Week 2 – Testing localy
 
 **Objectives**
-The local setup  should work on Martins notebook
+The local setup should work on Martins notebook
 maybe we switch already to parquets 
 Send Dataframes?
 
 **Tasks**
 - more endpoints [x]
 - We can query large chunks of data thanks to parquets [x]
-- testing the endpoints with copy of Martins Notebook + demo for MArtin []
+- testing the endpoints with copy of Martins Notebook + demo for Martin []
 - setting semantic limit based on what Martin uses []
 - creating a helper function in the notebook that loads the parquete and transforms the response into dataframe so that the client just asks for the data []
 
-**Outcome**
-
--
+**Outcome & Bottlenecks**
+- endpoints represent the state of Martin notebook.
+- Trying to figure out what kind of limits should I set for the data, since its should be scalable.
 
 ---
 
@@ -54,7 +53,7 @@ I wanted to align first whether these steps should stay in the notebook or be st
 
 -
 
-**Outcome**
+**Outcome & Bottlenecks**
 
 -
 
@@ -121,9 +120,9 @@ I wanted to align first whether these steps should stay in the notebook or be st
 
 - `Platte` (required)
 - `Nut` (required)
-- `DataOrigin` (optional)
-- `Signal` (optional)
-- `limit` (default small, hard cap enforced)
+- `DataOrigin` (required)
+- `Signal` (required)
+- `limit` (should be scalable)
 - `someting more?`
 
 ---
