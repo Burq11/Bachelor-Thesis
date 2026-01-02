@@ -6,7 +6,7 @@ Ziel ist es, große Mengen an Maschinen- und Sensordaten effizient aufzubereiten
 
 ---
 
-##Projektidee
+## Projektidee
 
 Das System besteht aus drei klar getrennten Schichten:
 
