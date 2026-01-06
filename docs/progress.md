@@ -29,14 +29,13 @@ Send Dataframes?
 **Tasks**
 - more endpoints [x]
 - We can query large chunks of data thanks to parquets [x]
-- testing the endpoints with copy of Martins Notebook + demo for Martin []
-- setting semantic limit based on what Martin uses []
+- creating a copy of Martin notebook that would represent the same reasearch but with different data source []
 - creating a helper function in the notebook that loads the parquete and transforms the response into dataframe so that the client just asks for the data []
+- setting semantic limit based on what Martin uses []
 
 **Outcome & Bottlenecks**
 - endpoints represent the state of Martin notebook.
 - Trying to figure out what kind of limits should I set for the data, since its should be scalable.
-
 ---
 
 ### Week 3 – Transform layer

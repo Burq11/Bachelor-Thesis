@@ -19,8 +19,8 @@ app = FastAPI(title="Test API Connections")
 BASE_DIR = Path(__file__).resolve().parent
 DB_PATH = BASE_DIR.parent / "data"/ "database.duckdb"
 TABLE_NAME = os.getenv("TABLE_NAME", "my_data")
-DEFAULT_LIMIT = int(os.getenv("DEFAULT_LIMIT", "20000"))
-MAX_LIMIT = int(os.getenv("MAX_LIMIT", "200000"))
+DEFAULT_LIMIT = int(os.getenv("DEFAULT_LIMIT", "200000"))
+MAX_LIMIT = int(os.getenv("MAX_LIMIT", "2000000"))
 DEFAULT_FIELDS = ["Time", "Signal", "DataOrigin", "Value", "WCS_Y_mm", "Nut", "Platte", "Axis", "SensorType"]
 
 def parse_csv_param(value: str | None) ->list[str] | None:
@@ -243,3 +243,19 @@ def list_data_origins(
     rows = con.execute(sql, [platte, nut]).fetchall()
     return [r[0] for r in rows]
 
+
+@app.get("/signal")
+def get_signals():
+    # Verbindung zur DuckDB öffnen (read_only verhindert Sperr-Probleme)
+    
+    # Query ausführen: SignalType nicht NULL
+    # .df() wandelt es in Pandas um, .to_dict() macht es JSON-fähig
+    result = con.execute("""
+        SELECT * FROM my_data
+        WHERE SensorType IS NOT NULL
+        LIMIT 10
+    """).df().head().replace({np.nan: None}).to_dict(orient="records")
+    
+    
+    
+    return result
