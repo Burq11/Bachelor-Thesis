@@ -244,18 +244,11 @@ def list_data_origins(
     return [r[0] for r in rows]
 
 
-@app.get("/signal")
-def get_signals():
-    # Verbindung zur DuckDB öffnen (read_only verhindert Sperr-Probleme)
-    
-    # Query ausführen: SignalType nicht NULL
-    # .df() wandelt es in Pandas um, .to_dict() macht es JSON-fähig
+@app.get("/sensorType")
+def get_sensorType():
     result = con.execute("""
         SELECT * FROM my_data
         WHERE SensorType IS NOT NULL
         LIMIT 10
     """).df().head().replace({np.nan: None}).to_dict(orient="records")
-    
-    
-    
     return result

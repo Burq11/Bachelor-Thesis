@@ -1,7 +1,6 @@
-# Bachelor progress
+# Bachelor progress ROADMAP
 
 ---
-## ROADMAP
 
 ### Week 1 – Local MVP Setup
 
@@ -19,6 +18,7 @@
 - endpoints were accesable, but the code and logic is quite complicated. Maybe we can hide the request somewhere under a button or a feature
 ---
 
+
 ### Week 2 – Testing localy
 
 **Objectives**
@@ -29,41 +29,63 @@ Send Dataframes?
 **Tasks**
 - more endpoints [x]
 - We can query large chunks of data thanks to parquets [x]
-- creating a copy of Martin notebook that would represent the same reasearch but with different data source []
-- creating a helper function in the notebook that loads the parquete and transforms the response into dataframe so that the client just asks for the data []
-- setting semantic limit based on what Martin uses []
+- creating a copy of Martin notebook that would represent the same reasearch but with different data source [x]
+- creating a helper function in the notebook that loads the parquete and transforms the response into dataframe so that the client just asks for the data [x]
+- setting semantic limit based on what Martin uses [-]
 
 **Outcome & Bottlenecks**
 - endpoints represent the state of Martin notebook.
 - Trying to figure out what kind of limits should I set for the data, since its should be scalable.
 ---
 
-### Week 3 – Transform layer
+
+### Week 3 – Change of structure 
+
+**Objectives**
+We came across some bottleneck. 
+What if the client want to access the data and work on it offline ?
+Overengineering the access via server
+It can work also as a standalone notebook 
+initial design goal: multi-user controlled access → server API
+updated constraints: offline demo, conference setting → local DB
+trade-off: portability vs central governance/version control
+final solution: local-first with optional API wrapper (room to work with)
+
+**Tasks**
+- restructure the project and create a new repo in gitlab[]
+- keep the old version in github[]
+- in /src/ paste the existing code for server connection []
+- in /src/ create a new version that connects to the database[]
+
+
+**Outcome**
+
+---
+
+
+### Week 4 – Transform layer
 
 **Objectives**
 Right now, the API mask mirrors the existing Oxford workflow and only replaces the data source.
 A transform layer on top of the API would be possible, but it would introduce methodological decisions (e.g. filtering, normalization).
 I wanted to align first whether these steps should stay in the notebook or be standardized in the API.
 - Existing notebooks continue to work
-- if Martin replyes that he needs soemthing like this 
+- 
 - validate endpionts(for example if sth does not exist)
 
 **Tasks**
 
--
+- create a transform layer that resembles the one Martin uses, but this time working tight with the database []
 
 **Outcome & Bottlenecks**
-
--
+- 
 
 ---
 
-### Week 4 – Pushing the concept to the IWF
+### Week 5 – Change of structure 
 
 **Objectives**
 
-- do we use Docker so that it runs on the server all the time?
-- Preparation for server deployment
 
 **Tasks**
 
@@ -122,7 +144,6 @@ I wanted to align first whether these steps should stay in the notebook or be st
 - `DataOrigin` (required)
 - `Signal` (required)
 - `limit` (should be scalable)
-- `someting more?`
 
 ---
 
